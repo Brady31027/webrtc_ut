@@ -8,7 +8,7 @@
 
 <body onload="loadMedia()">
 
-<video id="selfPreview"></video>
+<video id="selfPreview" width=1920 height=1080></video>
 
 <script>
 function loadMedia() {
@@ -18,10 +18,10 @@ function loadMedia() {
         audio: false,
         video: {
             mandatory: {
-                minWidth: 1920,
-                maxWidth: 1920,
-                minHeight: 1080,
-                maxHeight: 1080,
+                minWidth: 1280,
+                maxWidth: 1280,
+                minHeight: 720,
+                maxHeight: 720,
             }
         },
       }).then(stream => {
