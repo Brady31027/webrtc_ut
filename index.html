@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>WebRTC UT</title>
+</head>
+
+<body onload="loadMedia()">
+
+<div>
+	<p id="debugMsg">Debug Message</p>
+</div>
+
+<div>
+	<video id="selfPreview"></video>
+</div>
+
+<script>
+function loadMedia() {
+	debugMsg = document.getElementById("debugMsg");
+	videoElement = document.getElementById("selfPreview");
+	
+    navigator.mediaDevices.getUserMedia({
+        audio: false,
+        video: {
+            mandatory: {
+                minWidth: 360,
+                maxWidth: 720,
+                minHeight: 240,
+                maxHeight: 480,
+            }
+        },
+      }).then(stream => {
+        debugMsg.innerText += "\nStarting local stream...\n";
+        videoElement.srcObject = stream;
+        videoElement.muted = true;
+        videoElement.play();
+      }).catch((err) => {
+        debugMsg.innerText += "[Error] Can't start local stream\n";
+        debugMsg.innerText += "[Error] "+err.name+ ": "+ err.message +"\n";
+      });      
+} 
+</script>
+
+</body>
+</html>
