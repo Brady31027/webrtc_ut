@@ -12,7 +12,6 @@
 
 <script>
 function loadMedia() {
-	debugMsg = document.getElementById("debugMsg");
 	videoElement = document.getElementById("selfPreview");
 	
     navigator.mediaDevices.getUserMedia({
@@ -26,13 +25,11 @@ function loadMedia() {
             }
         },
       }).then(stream => {
-        debugMsg.innerText += "\nStarting local stream...\n";
         videoElement.srcObject = stream;
         videoElement.muted = true;
         videoElement.play();
       }).catch((err) => {
-        debugMsg.innerText += "[Error] Can't start local stream\n";
-        debugMsg.innerText += "[Error] "+err.name+ ": "+ err.message +"\n";
+        console.log("Something went wrong")
       });      
 } 
 </script>
