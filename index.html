@@ -4,18 +4,23 @@
 <head>
 	<meta charset="utf-8">
 	<title>WebRTC UT</title>
+	<style>
+		body {background-color: transparent;}
+	</style>
 </head>
+
+
 
 <body onload="loadMedia()">
 
-<video id="selfPreview" width=1920 height=1080></video>
+<video secondary id="selfPreview" width=480 height=360></video>
 
 <script>
 function loadMedia() {
 	videoElement = document.getElementById("selfPreview");
 	
     navigator.mediaDevices.getUserMedia({
-        audio: false,
+        audio: true,
         video: {
             mandatory: {
                 minWidth: 1920,
