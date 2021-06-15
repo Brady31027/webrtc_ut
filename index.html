@@ -21,7 +21,7 @@ function loadMedia() {
 	videoElement = document.getElementById("selfPreview");
 	
     navigator.mediaDevices.getUserMedia({
-        audio: true,
+        audio: false,
         video: {
             mandatory: {
                 minWidth: 1280,
